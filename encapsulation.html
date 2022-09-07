@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Encapsulation</title>
+    </head>
+<body>
+    <script>
+
+//lets have a look at unencapsulated  
+
+    let person={
+        name: "sefa",
+        surname: "yuzuak",
+        age: "27"
+    };
+
+    console.log(person.name); //sefa    
+    
+    console.log(person.age); //27
+
+    person.name = "osman"
+    
+    console.log(person.name); //osman
+
+//Encapsulation with class
+    
+    class Person {
+        #name = "kübra";
+
+        getName() {
+            return this.#name;
+        }
+        setName(name){
+            this.#name = name;
+        }
+
+    }
+    let person1 = new Person();
+
+    console.log(person1.getName());//kübra
+    
+    person1.setName("osman");//Provided Again
+    
+    console.log(person1.getName());//osman
+
+//Encapsulation with function
+
+    function createPerson(){
+        let name = "sefa"; //here we can write let, const and var
+        return{
+            getName: function(){
+                return name;
+            },
+            setName: function(newName){
+                name = newName;
+            },
+
+        };
+
+    };
+    
+    let newPerson = new createPerson(); //Create new person
+    
+    newPerson.setName("osman sefa") //Setted a new name
+    
+    console.log(newPerson.getName()); //osman sefa
+    </script>
+</body>
+</html>
